@@ -1,0 +1,21 @@
+<mat-sidenav-container class="dashboard">
+  <mat-sidenav #sidenav mode="side" class="side">
+    <app-sort></app-sort>
+    <app-region></app-region>
+    <app-status></app-status>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <article class="header-sidenav">
+      <mat-icon
+        aria-hidden="false"
+        (click)="sidenav.toggle()"
+        aria-label="menu"
+        fontIcon="menu"
+        class="menu"
+      ></mat-icon>
+      <app-searcher></app-searcher>
+    </article>
+    <app-table></app-table>
+  </mat-sidenav-content>
+</mat-sidenav-container>

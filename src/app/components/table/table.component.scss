@@ -1,0 +1,22 @@
+.table tr{
+    background-color: #1C1D1F;
+    color: #cccfd4;
+}
+.mat-mdc-paginator{
+    background-color: #1C1D1F;
+    color: #cccfd4;
+}
+
+::ng-deep mat-form-field{
+    background-color: #1C1D1F;
+}
+::ng-deep mat-select{
+    color: #cccfd4!important;
+}
+::ng-deep .mat-mdc-select-arrow-wrapper svg{
+    fill: #cccfd4!important;  
+}
+
+::ng-deep mat-paginator .mat-mdc-paginator-icon{
+    fill: #cccfd4!important;
+}

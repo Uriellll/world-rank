@@ -1,0 +1,14 @@
+.checks{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+::ng-deep mat-checkbox .mdc-checkbox .mdc-checkbox__background{
+    border-color: #fff!important;
+}
+.mat-checkbox-checked .mat-checkbox-background {
+    background-color: green!important; /* Cambia 'green' al color que desees */
+  }
+::ng-deep mat-checkbox label{
+    color: #fff;
+}

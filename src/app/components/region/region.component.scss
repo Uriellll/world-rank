@@ -1,0 +1,11 @@
+.button-row{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 200px;
+    margin-top: 20px;
+}
+.mdc-button.mat-mdc-button.mat-unthemed.mat-mdc-button-base{
+    margin-left: 7px;
+    background-color: #282B30;
+    color: #cccfd4
+}

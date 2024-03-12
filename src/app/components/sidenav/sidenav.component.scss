@@ -1,0 +1,24 @@
+.dashboard {
+  height: 600px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px #000;
+  background-color: #1C1D1F;
+}
+.side{
+    background-color: #1C1D1F;
+    padding: 20px;
+}
+.content{
+    padding: 20px;
+}
+.header-sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu{
+    color: #cccfd4;
+    font-size: 2em;
+    cursor: pointer;
+}
