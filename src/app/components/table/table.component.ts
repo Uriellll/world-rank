@@ -1,6 +1,8 @@
+import { Country } from './../../models/country.interface';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { CountriesService } from '../../services/countries.service';
 const ELEMENT_DATA: any[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
@@ -28,12 +30,19 @@ const ELEMENT_DATA: any[] = [
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
-export class TableComponent implements AfterViewInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<any>(ELEMENT_DATA);
+export class TableComponent{
+  displayedColumns: string[] = ['flag', 'name', 'population', 'area', 'region'];
+  dataSource!: MatTableDataSource<Country>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+  constructor(private countriesService:CountriesService){
+    this.getCountries();
+    
+  }
+  getCountries(){
+    this.countriesService.getCountries().subscribe( (res: Country[]) =>{
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
+    })
   }
   
 

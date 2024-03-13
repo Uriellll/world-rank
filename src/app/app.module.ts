@@ -18,6 +18,7 @@ import { StatusComponent } from './components/status/status.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatPaginatorModule,
     MatSelectModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    HttpClientModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
