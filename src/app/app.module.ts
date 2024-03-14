@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { HomeComponent } from './home/home.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -21,17 +20,21 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSortModule } from '@angular/material/sort';
+import { CountryDetailsComponent } from './components/country-details/country-details.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     SidenavComponent,
     SearcherComponent,
     TableComponent,
     SortComponent,
     RegionComponent,
     StatusComponent,
+    CountryDetailsComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCheckboxModule,
     HttpClientModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSortModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

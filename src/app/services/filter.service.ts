@@ -17,6 +17,9 @@ export class FilterService {
   private statusFlag: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
+  private sortSubject: BehaviorSubject<string> = new BehaviorSubject<string>(
+    ''
+  );
   setFilterData(region: string): void {
     this.regionSubject.next(region);
   }
@@ -40,5 +43,11 @@ export class FilterService {
   }
   getFlagStatus(): Observable<boolean> {
     return this.statusFlag.asObservable();
+  }
+  setSort(value: string): void {
+    this.sortSubject.next(value);
+  }
+  getSort(): Observable<string> {
+    return this.sortSubject.asObservable();
   }
 }

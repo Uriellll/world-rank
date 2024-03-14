@@ -1,0 +1,15 @@
+<article class="country">
+  <div>
+    <img [src]="country.flag" [alt]="country.name"/>
+  </div>
+  <div class="info">
+    <h1>{{ country.name }}</h1>
+    <p>Languages: {{country.languages?.spa}}</p>
+    <p>Area: {{country.area | number}}</p>
+    <p>Population: {{country.population | number}}</p>
+    <p>Region: {{country.region}}</p>
+    <p>Subregion: {{country.subregion}}</p>
+    <p>Capital: <span *ngFor="let cap of country.capital">{{cap}}</span></p>
+    <p>Borders: <span *ngFor="let border of country.borders" [routerLink]="['/detail', border]" class="link"> {{border}} </span> </p>
+  </div>
+</article>

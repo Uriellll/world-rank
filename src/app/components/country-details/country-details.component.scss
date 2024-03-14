@@ -1,0 +1,29 @@
+.country{
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    justify-content: center;
+}
+img{
+    width: 400px;
+}
+.info{
+    padding: 0 40px;
+    color: #cccfd4
+}
+.link{
+    cursor: pointer;
+    text-decoration: underline;
+    margin-right: 10px;
+}
+@media screen and (max-width: 750px) {
+    img{
+        width: 300px;
+    }
+    .country {
+        flex-direction: column;
+    }
+    .info{
+        text-align: center;
+    }
+  }

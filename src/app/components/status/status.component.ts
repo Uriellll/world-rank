@@ -35,7 +35,6 @@ export class StatusComponent implements OnDestroy {
       this.filterService.getFlagRegion()
     ]).subscribe(([flagSearcher, flagRegion]) => {
       if (flagSearcher || flagRegion) {
-        console.log(flagSearcher,flagRegion)
         this.checkbox2Control.setValue(false);
         this.checkbox1Control.setValue(false);
       }

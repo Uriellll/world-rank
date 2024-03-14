@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../models/country.interface';
 import { FilterService } from '../../services/filter.service';
+import { Subscription, combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-region',
   templateUrl: './region.component.html',
   styleUrl: './region.component.scss',
 })
-export class RegionComponent {
+export class RegionComponent implements OnDestroy {
   regions: string[] = [];
   selectedRegion: string = '';
+  private subscriptions: Subscription[] = [];
   constructor(
     private countriesService: CountriesService,
     private filterService: FilterService
@@ -18,15 +20,19 @@ export class RegionComponent {
     this.getRegions();
     this.checkFlag();
   }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+  }
   getRegions() {
-    this.countriesService.getCountries().subscribe((res: Country[]) => {
-      this.regions = this.filterRegions(res);
-      this.regions.push('All');
-    });
+    this.subscriptions.push(
+      this.countriesService.getCountries().subscribe((res: Country[]) => {
+        this.regions = this.filterRegions(res);
+        this.regions.push('All');
+      })
+    );
   }
   filterRegions(data: Country[]): string[] {
     const uniqueRegions: string[] = [];
-    // Filtrar solo las regiones únicas
     data.forEach((item) => {
       if (!uniqueRegions.includes(item.region)) {
         uniqueRegions.push(item.region);
@@ -43,11 +49,15 @@ export class RegionComponent {
     this.filterService.setFilterData(region);
   }
   checkFlag() {
-    this.filterService.getFlagSearcherOf().subscribe((res) => {
-      if (res) this.selectedRegion = '';
-    });
-    this.filterService.getFlagStatus().subscribe((res) =>{
-      if (res) this.selectedRegion = '';
-    })
+    this.subscriptions.push(
+      combineLatest([
+        this.filterService.getFlagSearcherOf(),
+        this.filterService.getFlagStatus(),
+      ]).subscribe(([flagSearcher, flagStatus]) => {
+        if (flagStatus || flagSearcher) {
+          this.selectedRegion = '';
+        }
+      })
+    );
   }
 }

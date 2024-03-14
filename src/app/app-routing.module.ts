@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { CountryDetailsComponent } from './components/country-details/country-details.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
+  {path: 'home', component: SidenavComponent},
+  {path: 'detail/:name', component: CountryDetailsComponent},
   {path: '**', redirectTo: 'home'}
 ];
 

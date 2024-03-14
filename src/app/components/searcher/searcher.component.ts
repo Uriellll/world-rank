@@ -1,35 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FilterService } from '../../services/filter.service';
+import { Subscription, combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-searcher',
   templateUrl: './searcher.component.html',
-  styleUrl: './searcher.component.scss'
+  styleUrl: './searcher.component.scss',
 })
-export class SearcherComponent implements OnInit {
+export class SearcherComponent implements OnInit, OnDestroy {
   searcherControl: FormControl = new FormControl('');
-  constructor(private filterService:FilterService){
+  private subscriptions: Subscription[] = [];
+  constructor(private filterService: FilterService) {}
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
   ngOnInit(): void {
     this.checkValueChanges();
     this.checkFlag();
-   
   }
-  checkValueChanges(){
-    
-    this.searcherControl.valueChanges.subscribe(value =>{
-      if(value != '')this.filterService.setFlagSearcherOf(true); 
-      this.filterService.setFilterData(value);
-    });
-    
+  checkValueChanges() {
+    this.subscriptions.push(
+      this.searcherControl.valueChanges.subscribe((value) => {
+        if (value != '') this.filterService.setFlagSearcherOf(true);
+        this.filterService.setFilterData(value);
+      })
+    );
   }
-  checkFlag(){
-    this.filterService.getFlagRegion().subscribe(res =>{
-      if(res) this.searcherControl.setValue('');
-    })
-    this.filterService.getFlagStatus().subscribe(res =>{
-      if(res) this.searcherControl.setValue('');
-    })
+  checkFlag() {
+    this.subscriptions.push(
+      combineLatest([
+        this.filterService.getFlagRegion(),
+        this.filterService.getFlagStatus(),
+      ]).subscribe(([flagRegion, flagStatus]) => {
+        if (flagStatus || flagRegion) {
+          this.searcherControl.setValue('');
+        }
+      })
+    );
   }
 }
