@@ -9,8 +9,9 @@ import { Observable, map } from 'rxjs';
 export class CountriesService {
   
 
-  constructor(private http: HttpClient) { }
-  public getCountries():Observable<Country[]>{
+  constructor(private http: HttpClient) {
+  }
+  getCountries():Observable<Country[]>{
     return this.http.get<any>('https://restcountries.com/v3.1/all').pipe(
       map( (fullData:any) =>{
         return fullData.map((data:any) =>({
@@ -19,7 +20,7 @@ export class CountriesService {
           population: data.population,
           area: data.area,
           region: data.region,
-          independent: data.independent
+          independent: data.independent ? 'independent' : 'memberOfUnited'
         })) as Country[];
       })
     )

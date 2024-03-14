@@ -3,6 +3,7 @@
     aria-hidden="false"
     aria-label="search"
     fontIcon="search"
+    class=""
   ></mat-icon>
-  <input matInput placeholder="Search by Name, Region, Subregion" />
+  <input matInput [formControl]="searcherControl" placeholder="Search by Name, Region, Subregion" />
 </mat-form-field>

@@ -19,6 +19,8 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatButtonModule,
     MatCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

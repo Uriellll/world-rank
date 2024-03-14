@@ -1,4 +1,10 @@
 <div class="button-row">
-    <button mat-button>Primary</button>
-    <button mat-button>Primary</button>
+  <button
+    mat-button
+    *ngFor="let region of regions"
+    [ngClass]="{ active: region === selectedRegion }"
+    (click)="selectRegion(region)"
+  >
+    {{ region }}
+  </button>
 </div>

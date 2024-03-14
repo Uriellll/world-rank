@@ -1,4 +1,4 @@
 <div class="checks">
-  <mat-checkbox color="primary">Check me!</mat-checkbox>
-  <mat-checkbox color="primary">Check me!</mat-checkbox>
+  <mat-checkbox [formControl]="checkbox1Control" color="primary" (change)="onCheckboxChange(checkbox1Control)">Member of the United Nations</mat-checkbox>
+  <mat-checkbox [formControl]="checkbox2Control" color="primary" (change)="onCheckboxChange(checkbox2Control)">Independent</mat-checkbox>
 </div>
