@@ -1,6 +1,6 @@
 # CountryPage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+Wolrd Rank- Creating wep app which makes api requests to bring info about countries. I apply angular topics as routes, rxjs, components, angular material
 
 ## Development server
 
