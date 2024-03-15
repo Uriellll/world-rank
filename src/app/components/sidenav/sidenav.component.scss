@@ -1,21 +1,35 @@
 .dashboard {
-    width: 100%;
-    background-color: #1C1D1F;
-  }
-.side{
-    background-color: #1C1D1F;
-    padding: 20px;
+  width: 100%;
+  background-color: #1c1d1f;
 }
-.content{
-    padding: 20px;
+.side {
+  background-color: #1c1d1f;
+  padding: 20px;
+  min-width: 200px;
+}
+.content {
+  padding: 20px;
 }
 .header-sidenav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.menu{
-    color: #cccfd4;
-    font-size: 2em;
-    cursor: pointer;
+.menu {
+  color: #cccfd4;
+  font-size: 2em;
+  cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+  .header-sidenav {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+@media screen and (max-width: 650px) {
+  .side {
+    width: 50px;
+    padding: 5px;
+  }
 }

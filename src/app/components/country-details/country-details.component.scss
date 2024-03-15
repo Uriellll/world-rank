@@ -3,7 +3,16 @@
     align-items: center;
     padding: 40px;
     justify-content: center;
+    position: relative;
 }
+.icon {
+    color: #fff;
+    font-size: 2em;
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    cursor: pointer;
+  }
 img{
     width: 400px;
 }
