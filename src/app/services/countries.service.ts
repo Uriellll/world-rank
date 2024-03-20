@@ -1,15 +1,19 @@
 import { Country, CountryDetail } from './../models/country.interface';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-
+const headers = new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*', // Configura el origen permitido, '*' permite a cualquier origen
+  // Opcionalmente, puedes configurar otras cabeceras CORS según tus necesidades
+});
 @Injectable({
   providedIn: 'root',
 })
 export class CountriesService {
   constructor(private http: HttpClient) {}
   getCountries(): Observable<Country[]> {
-    return this.http.get<Country[]>('https://restcountries.com/v3.1/all').pipe(
+    return this.http.get<Country[]>('https://restcountries.com/v3.1/all',{headers}).pipe(
       map((fullData: any) => {
         return fullData.map((data: any) => ({
           flag: data.flags.png,
@@ -24,7 +28,7 @@ export class CountriesService {
   }
   getCountry(name: string): Observable<CountryDetail[]> {
     return this.http
-      .get<CountryDetail[]>(`https://restcountries.com/v3.1/name/${name}`)
+      .get<CountryDetail[]>(`https://restcountries.com/v3.1/name/${name}`,{headers})
       .pipe(
         map((dataCountry: any) => {
           return dataCountry.map((data: any) => ({
