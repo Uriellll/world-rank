@@ -4,10 +4,9 @@ import { CountryDetailsComponent } from './components/country-details/country-de
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: SidenavComponent},
+  {path: '', component: SidenavComponent},
   {path: 'detail/:name', component: CountryDetailsComponent},
-  {path: '**', redirectTo: 'home'}
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
