@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CountryDetailsComponent } from './components/country-details/country-details.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { LoginComponent } from './auth/login/login.component';
+import { DashboardRoutingModule } from './dashboard-country/dashboard.routing';
 
 const routes: Routes = [
-  {path: '', component: SidenavComponent},
-  {path: 'detail/:name', component: CountryDetailsComponent},
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  {path: 'dashboard', loadChildren: () => import('./dashboard-country/dashboard.module').then(m => m.DashboardModule)},
+  {path: 'login', component:LoginComponent},
   {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), DashboardRoutingModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

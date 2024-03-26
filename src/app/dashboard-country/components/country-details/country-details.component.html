@@ -4,7 +4,7 @@
     aria-hidden="false"
     aria-label="Icon World"
     fontIcon="arrow_back"
-    routerLink="/home"
+    routerLink="/"
   ></mat-icon>
   <div>
     <img [src]="country.flag" [alt]="country.name"/>
@@ -17,6 +17,6 @@
     <p>Region: {{country.region}}</p>
     <p>Subregion: {{country.subregion}}</p>
     <p>Capital: <span *ngFor="let cap of country.capital">{{cap}}</span></p>
-    <p>Borders: <span *ngFor="let border of country.borders" [routerLink]="['/detail', border]" class="link"> {{border}} </span> </p>
+    <p>Borders: <span *ngFor="let border of country.borders" [routerLink]="['/dashboard/detail', border]" class="link"> {{border}} </span> </p>
   </div>
 </article>

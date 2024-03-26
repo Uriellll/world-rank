@@ -1,4 +1,4 @@
-import { FilterService } from './../../services/filter.service';
+import { FilterService } from '../../../services/filter.service';
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription, combineLatest, forkJoin } from 'rxjs';

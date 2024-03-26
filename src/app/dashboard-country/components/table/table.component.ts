@@ -1,4 +1,4 @@
-import { Country } from './../../models/country.interface';
+import { Country } from '../../../models/country.interface';
 import {
   AfterViewInit,
   Component,
@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { CountriesService } from '../../services/countries.service';
-import { FilterService } from '../../services/filter.service';
+import { CountriesService } from '../../../services/countries.service';
+import { FilterService } from '../../../services/filter.service';
 import { MatSort } from '@angular/material/sort';
 import { Subscription } from 'rxjs';
 

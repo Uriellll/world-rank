@@ -1,0 +1,13 @@
+.countries {
+    margin: 0 40px;
+    margin-top: -50px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px #000;
+    background-color: #1C1D1F;
+  }
+  @media screen and (max-width: 600px) {
+    .countries {
+      margin: 0px 0px !important;
+    }
+  }

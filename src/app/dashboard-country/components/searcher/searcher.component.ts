@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { FilterService } from '../../services/filter.service';
+import { FilterService } from '../../../services/filter.service';
 import { Subscription, combineLatest } from 'rxjs';
 
 @Component({

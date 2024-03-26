@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
-import { CountriesService } from '../../services/countries.service';
-import { Country } from '../../models/country.interface';
-import { FilterService } from '../../services/filter.service';
+import { CountriesService } from '../../../services/countries.service';
+import { Country } from '../../../models/country.interface';
+import { FilterService } from '../../../services/filter.service';
 import { Subscription, combineLatest } from 'rxjs';
 
 @Component({

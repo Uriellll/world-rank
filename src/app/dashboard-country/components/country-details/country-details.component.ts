@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CountriesService } from '../../services/countries.service';
+import { CountriesService } from '../../../services/countries.service';
 import { Subscription } from 'rxjs';
 
 @Component({

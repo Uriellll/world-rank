@@ -1,4 +1,4 @@
-import { FilterService } from './../../services/filter.service';
+import { FilterService } from '../../../services/filter.service';
 import { Component } from '@angular/core';
 
 @Component({
