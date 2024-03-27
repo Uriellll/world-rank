@@ -29,4 +29,7 @@ export class AuthService {
     }
     return minuscCount === 9 && mayuscCount === 4;
   }
+  logout():void{
+    localStorage.removeItem('token');
+  }
 }
