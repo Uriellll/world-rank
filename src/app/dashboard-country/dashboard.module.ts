@@ -20,6 +20,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
 import { CountryDetailsComponent } from './components/country-details/country-details.component';
+import { DashboardRoutingModule } from './dashboard.routing';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { CountryDetailsComponent } from './components/country-details/country-de
     MatButtonModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    MatSortModule, 
+    MatSortModule,
+    DashboardRoutingModule
   ]
 })
 export class DashboardModule { }
