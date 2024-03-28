@@ -7,7 +7,7 @@ import { Login } from '../models/login.interface';
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-  login(login: Login): Observable<Login> {
+  login(login: Login): Observable<any> {
     return this.http.post<Login>('https://reqres.in/api/login', login);
   }
   isAuthenticated(): boolean {
