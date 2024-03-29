@@ -76,12 +76,12 @@ export class TableComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
   checkSort() {
-    let sort = '';
+    let sortTableRes = '';
     this.subscriptions.push(
       this.filterService.getSort().subscribe((res) => {
-        if (!res) sort = 'population';
-        else sort = res;
-        this.sortTable(sort);
+        if (!res) sortTableRes = 'population';
+        else sortTableRes = res;
+        this.sortTable(sortTableRes);
       })
     );
   }

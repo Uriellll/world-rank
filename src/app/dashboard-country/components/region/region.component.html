@@ -1,7 +1,7 @@
 <div class="button-row">
   <button
     mat-button
-    *ngFor="let region of regions"
+    *ngFor="let region of regionsFiltered"
     [ngClass]="{ active: region === selectedRegion }"
     (click)="selectRegion(region)"
   >

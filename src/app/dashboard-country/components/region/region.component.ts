@@ -12,6 +12,7 @@ import { Subscription, combineLatest } from 'rxjs';
 export class RegionComponent implements OnDestroy {
   regions: string[] = [];
   selectedRegion: string = '';
+  regionsFiltered:string[] = [];
   private subscriptions: Subscription[] = [];
   constructor(
     private countriesService: CountriesService,
@@ -27,7 +28,7 @@ export class RegionComponent implements OnDestroy {
     this.subscriptions.push(
       this.countriesService.getCountries().subscribe((res: Country[]) => {
         this.regions = this.filterRegions(res);
-        this.regions.push('All');
+        this.regionsFiltered = [...this.regions, 'All'];
       })
     );
   }

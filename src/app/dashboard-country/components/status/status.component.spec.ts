@@ -1,10 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StatusComponent } from './status.component';
+import { Country } from '../../../models/country.interface';
 
 describe('StatusComponent', () => {
   let component: StatusComponent;
   let fixture: ComponentFixture<StatusComponent>;
+  
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
