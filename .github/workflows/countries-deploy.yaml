@@ -1,15 +1,18 @@
 name: Countries deploy
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-      - name: Install packages
-        run: npm ci
-      - name: Bundle
-        run: npm run build
+      - name: Echo the message
+        run:
+          echo "Hola Uriel"
+      - name: Tell me the date
+        run: date
+      - run: ls -l
+
 
 

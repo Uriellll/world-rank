@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardCountryComponent } from './dashboard-country.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('DashboardCountryComponent', () => {
   let component: DashboardCountryComponent;
@@ -8,7 +12,8 @@ describe('DashboardCountryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DashboardCountryComponent]
+      declarations: [DashboardCountryComponent, HeaderComponent],
+      imports: [HttpClientModule, RouterModule, MatIconModule]
     })
     .compileComponents();
     
@@ -17,7 +22,7 @@ describe('DashboardCountryComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

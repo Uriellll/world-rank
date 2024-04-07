@@ -5,7 +5,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterService } from '../../../services/filter.service';
-import { of } from 'rxjs';
 
 describe('SortComponent', () => {
   let component: SortComponent;
