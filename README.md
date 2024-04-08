@@ -1,3 +1,4 @@
+[![Deployment Pipeline](https://github.com/Uriellll/world-rank/actions/workflows/pipeline.yml/badge.svg)](https://github.com/Uriellll/world-rank/actions/workflows/pipeline.yml)
 # CountryPage
 
 Wolrd Rank- Creating wep app which makes api requests to bring info about countries. I apply angular topics as routes, rxjs, components, angular material
